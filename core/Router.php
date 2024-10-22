@@ -61,12 +61,19 @@ class Router {
      * @since   Method available since Release 1.0.0
      */
     private function decodeControler(string $route): iterable {
+        $con = explode('/', $route);
 
-        $con = explode("/", $route);
+        if (is_array($con) && reset($con) == 'admin') {
+            return [
+                'admin_prefix' => $con[0] ?? '',
+                'controller' => $con[1] ?? '',
+                'action' => $con[2] ?? '',
+            ];
+        }
 
         return [
-            "controller" => ucfirst($con[0]),
-            "action" => $con[1],
+            'controller' => $con[0] ?? '',
+            'action' => $con[1] ?? '',
         ];
     }
 
@@ -90,6 +97,11 @@ class Router {
 
                 $route = $this->decodeControler($route);
                 $namespace = 'App\Controllers\\';
+
+                if (isset($route['admin_prefix'])) {
+                    $namespace.= $route['admin_prefix'] . '\\';
+                }
+
                 $route['controller'] = $namespace . $route['controller'];
                 $this->routePath = $route_path;
                 return $route;
@@ -183,7 +195,6 @@ class Router {
         if ($this->route === NULL) {
             throw new \Exception('No route matched.', 404);
         }
-
         // Get route parameters
         $this->extractUrlParams($url);
 
