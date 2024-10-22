@@ -29,12 +29,12 @@ class View {
         extract($params, EXTR_SKIP);
 
         // Page template path.
-        $content = APPLICATION_PATH . "/app/Views/Page/$view.php";
+        $content = APPLICATION_PATH . "/App/Views/Page/$view.php";
 
         if (is_readable($content)) {
             
             // Include global template
-            require_once APPLICATION_PATH . "/app/Views/Template.php";
+            require_once APPLICATION_PATH . "/App/Views/Template.php";
             
         } else {
             
@@ -59,7 +59,7 @@ class View {
         extract($params, EXTR_SKIP);
 
         // Error template path
-        $content = APPLICATION_PATH . "/app/Views/error.php";
+        $content = APPLICATION_PATH . "/App/Views/error.php";
 
         if (is_readable($content)) {
             
