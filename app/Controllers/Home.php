@@ -12,13 +12,7 @@ use Core\Validator;
  *
  * The controller is used to display the dashboard.
  *
- * @category   Controllers
- * @package    App\Controllers
- * @author     Andrej <*.*.com>
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    Release: @package_version@
- * @link       http://pear.php.net/package/PackageName
- * @since      Class available since Release 1.0.0
+ * @author Nguyen Viet Duong
  */
 class Home extends AbstractController {
 

@@ -2,10 +2,19 @@
 
 namespace Core;
 
+/**
+ * Read data from .env file
+ *
+ * @author Nguyen Viet Duong
+ */
 class EnvProvider
 {
     public function getEvironmentData($filename) {
-        $file = fopen($filename, "r");
+        if (!file_exists($filename)) {
+            throw new \Exception('Env file is missing!');
+        }
+
+        $file = fopen($filename, 'r');
         $result = [];
 
         if ($file) {
@@ -30,8 +39,6 @@ class EnvProvider
             fclose($file);
             return $result;
         }
-        // Error handling if the file couldn't be opened
-        echo "Error: Unable to open the file.";
         return $result;
     }
 }
