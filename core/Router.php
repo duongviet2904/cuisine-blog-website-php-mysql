@@ -2,6 +2,7 @@
 
 namespace Core;
 
+use Config\Application;
 use Core\Request;
 use Exception;
 
@@ -10,13 +11,7 @@ use Exception;
  *
  * This class is used to store and validate routes.
  *
- * @category   Router
- * @package    Core
- * @author     Andrej <*.*.com>
- * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version    Release: @package_version@
- * @link       http://pear.php.net/package/PackageName
- * @since      Class available since Release 1.0.0
+ * @author Nguyen Viet Duong
  */
 class Router {
 
@@ -180,7 +175,7 @@ class Router {
 
         // Get default url if there is no route.
         if ($url === "" || $url === "/") {
-            $url = \Config\Application::DEFAULT_ROUTE;
+            $url = Application::DEFAULT_ROUTE;
         }
         // Validate route
         $this->route = $this->checkRoute($url, $method);
