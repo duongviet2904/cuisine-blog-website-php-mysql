@@ -69,7 +69,6 @@ class Psr4AutoloaderClass {
     public function __construct() {
 
         $in = APPLICATION_PATH . "/App/Namespaces.php";
-
         if (!is_file($in)) {
             throw new Exception("There is no routes defined.");
         }
@@ -108,7 +107,6 @@ class Psr4AutoloaderClass {
         if (isset($this->prefixes[$prefix]) === false) {
             $this->prefixes[$prefix] = array();
         }
-        die(var_dump($prefix, $base_dir));
         // retain the base directory for the namespace prefix
         if ($prepend) {
             array_unshift($this->prefixes[$prefix], $base_dir);

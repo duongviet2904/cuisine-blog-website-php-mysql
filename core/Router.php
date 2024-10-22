@@ -62,10 +62,10 @@ class Router {
      */
     private function decodeControler(string $route): iterable {
 
-        $con = explode("_", $route);
+        $con = explode("/", $route);
 
         return [
-            "controller" => $con[0],
+            "controller" => ucfirst($con[0]),
             "action" => $con[1],
         ];
     }

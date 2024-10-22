@@ -2,6 +2,6 @@
 
 return [
     "GET" => [
-        "/home" => "Home_index"
+        "/home" => "home/index"
     ]
 ];
