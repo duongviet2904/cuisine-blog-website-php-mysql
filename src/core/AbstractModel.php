@@ -37,7 +37,7 @@ abstract class AbstractModel {
         if (static::$db === null) {
             
             $conn_string = 'mysql:host=' . DB_HOST . ';dbname=' . DB_DATABASE . ';charset=utf8';
-            $db = new \PDO($conn_string, DB_USERNAME, DB_PASSWORD);
+            $db = new \PDO($conn_string, DB_ROOT_USERNAME, DB_ROOT_PASSWORD);
 
             // Throw an Exception when an error occurs
             $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);

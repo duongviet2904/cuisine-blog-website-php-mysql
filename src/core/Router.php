@@ -63,16 +63,16 @@ class Router {
     private function decodeControler(string $route): iterable {
         $con = explode('/', $route);
 
-        if (is_array($con) && reset($con) == 'admin') {
+        if (is_array($con) && in_array(reset($con), ['admin', 'Admin'])) {
             return [
-                'admin_prefix' => $con[0] ?? '',
-                'controller' => $con[1] ?? '',
+                'admin_prefix' => ucfirst($con[0] ?? ''),
+                'controller' => ucfirst($con[1] ?? ''),
                 'action' => $con[2] ?? '',
             ];
         }
 
         return [
-            'controller' => $con[0] ?? '',
+            'controller' => ucfirst($con[0] ?? ''),
             'action' => $con[1] ?? '',
         ];
     }
@@ -96,6 +96,7 @@ class Router {
             if (strpos($url, $route_path) === 0) {
 
                 $route = $this->decodeControler($route);
+
                 $namespace = 'App\Controllers\\';
 
                 if (isset($route['admin_prefix'])) {
@@ -155,7 +156,6 @@ class Router {
      * @since   Method available since Release 1.0.0
      */
     private function runRoute(): void {
-
         // Check if class exists
         if (class_exists($this->route['controller'])) {
 
@@ -179,24 +179,24 @@ class Router {
      */
     public function dispatch(): void {
 
-        // Get the url.
-        $url = $_SERVER['PHP_SELF'];
+        // Get request url
+        $requestUrl = $_SERVER['REQUEST_URI'];
 
         // Get the method.
         $method = $_SERVER['REQUEST_METHOD'];
 
         // Get default url if there is no route.
-        if ($url === "" || $url === "/") {
-            $url = Application::DEFAULT_ROUTE;
+        if ($requestUrl === "/" || $requestUrl === "") {
+            $requestUrl = Application::DEFAULT_ROUTE;
         }
         // Validate route
-        $this->route = $this->checkRoute($url, $method);
+        $this->route = $this->checkRoute($requestUrl, $method);
 
         if ($this->route === NULL) {
             throw new \Exception('No route matched.', 404);
         }
         // Get route parameters
-        $this->extractUrlParams($url);
+        $this->extractUrlParams($requestUrl);
 
         // Run the route
         $this->runRoute();

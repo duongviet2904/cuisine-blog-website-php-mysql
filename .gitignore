@@ -1,4 +1,6 @@
 /database/.DS_Store
 .env
 .DS_Store
-.idea
+.idea/
+docker/db/mysql/*
+docker/nginx/logs/*
