@@ -8,6 +8,6 @@ use Core\AdminView;
 class AdminController extends AbstractController
 {
     public function index() {
-        AdminView::render("admin_dashboard");
+        AdminView::render("dashboard");
     }
 }

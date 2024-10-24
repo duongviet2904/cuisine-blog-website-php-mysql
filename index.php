@@ -11,7 +11,7 @@ $loader = new Core\Psr4AutoloaderClass();
 $loader->register();
 
 $envProvider = new Core\EnvProvider();
-$envData = $envProvider->getEvironmentData('./.env');
+$envData = $envProvider->getEvironmentData('./config/env.php');
 
 foreach ($envData as $key => $value) {
     define($key, $value);
