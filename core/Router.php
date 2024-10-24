@@ -63,7 +63,7 @@ class Router {
     private function decodeControler(string $route): iterable {
         $con = explode('/', $route);
 
-        if (is_array($con) && in_array(reset($con), ['admin', 'Admin'])) {
+        if (is_array($con) && in_array(reset($con), ['adminhtml', 'Adminhtml'])) {
             return [
                 'admin_prefix' => ucfirst($con[0] ?? ''),
                 'controller' => ucfirst($con[1] ?? ''),
