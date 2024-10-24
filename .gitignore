@@ -4,3 +4,4 @@
 .idea/
 docker/db/mysql/*
 docker/nginx/logs/*
+docker/apache/logs/*
