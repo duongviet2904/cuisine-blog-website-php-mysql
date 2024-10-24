@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\Adminhtml;
 
 use Core\AbstractController;
-use Core\View;
+use Core\AdminView;
 
 class AdminController extends AbstractController
 {
     public function index() {
-        View::render("admin/admin_dashboard");
+        AdminView::render("admin_dashboard");
     }
 }

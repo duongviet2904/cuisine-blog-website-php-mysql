@@ -2,7 +2,7 @@
 
 return [
     "GET" => [
-        "/home" => "home/index",
-        "/" . ADMIN_URL . "/dashboard" => 'admin/admincontroller/index'
+        "/home" => "Home/index",
+        "/" . ADMIN_URL . "/dashboard" => 'adminhtml/AdminController/index'
     ]
 ];

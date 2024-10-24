@@ -9,7 +9,7 @@ namespace Core;
  *
  * @author Nguyen Viet Duong
  */
-class View {
+class AdminView {
 
     /**
      * The render method.
@@ -29,12 +29,12 @@ class View {
         extract($params, EXTR_SKIP);
 
         // Page template path.
-        $content = APPLICATION_PATH . "/app/Views/Page/$view.php";
+        $content = APPLICATION_PATH . "/app/Views/Adminhtml/Page/$view.php";
 
         if (is_readable($content)) {
             
             // Include global template
-            require_once APPLICATION_PATH . "/app/Views/Template.php";
+            require_once APPLICATION_PATH . "/app/Views/Adminhtml/Template.php";
             
         } else {
             
