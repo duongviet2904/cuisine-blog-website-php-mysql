@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 
 use Core\AbstractController;
@@ -7,9 +6,9 @@ use Core\Request;
 use Core\View;
 use Core\Validator;
 
-class Home extends AbstractController {
+class ContactUs extends AbstractController {
     public function index(): void {
-        $selected = 'home';
-        View::render("home",compact(array('selected')));
+        $selected = 'contact-us';
+        View::render("contact-us",compact(array('selected')));
     }
 }

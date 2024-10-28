@@ -7,9 +7,9 @@ use Core\Request;
 use Core\View;
 use Core\Validator;
 
-class Home extends AbstractController {
+class PostDetail extends AbstractController {
     public function index(): void {
-        $selected = 'home';
-        View::render("home",compact(array('selected')));
+        $selected = 'post-detail';
+        View::render("post-detail",compact(array('selected')));
     }
 }
