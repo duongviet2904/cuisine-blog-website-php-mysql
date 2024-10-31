@@ -1,18 +1,3 @@
-<div class="heading-page header-text">
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-content">
-                        <h4>Post Details</h4>
-                        <h2>Single blog post</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
 <section class="call-to-action">
     <div class="container">
         <div class="row">
@@ -82,6 +67,7 @@
                                     <h2>4 comments</h2>
                                 </div>
                                 <div class="content">
+                                    <div class="fb-page" data-href="http://localhost/post-detail" data-tabs="timeline" data-width="" data-height="100px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
                                     <ul>
                                         <li>
                                             <div class="author-thumb">

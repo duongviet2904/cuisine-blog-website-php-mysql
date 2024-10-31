@@ -1,17 +1,3 @@
-<div class="heading-page header-text">
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-content">
-                        <h4>Recent Posts</h4>
-                        <h2>Our Recent Blog Entries</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
 <section class="call-to-action">
     <div class="container">
         <div class="row">
@@ -42,13 +28,13 @@
                 <div class="all-blog-posts">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="blog-post">
+                            <a href="#"><div class="blog-post">
                                 <div class="blog-thumb">
                                     <img src="assets/images/blog-thumb-01.jpg" alt="">
                                 </div>
                                 <div class="down-content">
                                     <span>Lifestyle</span>
-                                    <a href="post-details.html"><h4>Donec tincidunt leo</h4></a>
+                                    <a href="post-details.html" class="post-title"><h4>Donec tincidunt leo</h4></a>
                                     <ul class="post-info">
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 31, 2020</a></li>
@@ -67,7 +53,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div></a>
                         </div>
                         <div class="col-lg-6">
                             <div class="blog-post">
@@ -98,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="blog-post">
+                            <a href="#"><div class="blog-post">
                                 <div class="blog-thumb">
                                     <img src="assets/images/blog-thumb-03.jpg" alt="">
                                 </div>
@@ -123,7 +109,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                </div></a>
                         </div>
                         <div class="col-lg-6">
                             <div class="blog-post">

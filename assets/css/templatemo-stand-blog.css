@@ -53,7 +53,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .page-heading {
-	margin: 0px 10px;
 	padding: 120px 0px;
 	text-align: left;
 	background-position: center center;
@@ -1091,3 +1090,19 @@ footer p a:hover {
 		margin-top: 60px;
 	}
 }
+.post-title h4{
+	transition: transform 0.3s ease;
+}
+.post-title h4:hover{
+	color: #f48840;
+}
+.blog-thumb{
+	overflow: hidden;
+}
+.blog-thumb img{
+	transition: transform 0.3s ease;
+}
+.blog-thumb img:hover{
+	transform: scale(1.2);
+}
+
