@@ -1,6 +1,12 @@
 <?php
+namespace App\Models;
 
-class Account
+use Core\AbstractModel;
+
+class Account extends AbstractModel
 {
-
+    public function __construct()
+    {
+        parent::__construct('accounts');
+    }
 }

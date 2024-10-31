@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="down-content">
                                     <span>Lifestyle</span>
-                                    <a href="post-details.html"><h4>Suspendisse et metus</h4></a>
+                                    <a href="post-details.html" class="post-title"><h4>Suspendisse et metus</h4></a>
                                     <ul class="post-info">
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 22, 2020</a></li>
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="down-content">
                                     <span>Lifestyle</span>
-                                    <a href="post-details.html"><h4>Donec tincidunt leo</h4></a>
+                                    <a href="post-details.html" class="post-title"><h4>Donec tincidunt leo</h4></a>
                                     <ul class="post-info">
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 18, 2020</a></li>
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="down-content">
                                     <span>Lifestyle</span>
-                                    <a href="post-details.html"><h4>Mauris ac dolor ornare</h4></a>
+                                    <a href="post-details.html" class="post-title"><h4>Mauris ac dolor ornare</h4></a>
                                     <ul class="post-info">
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 16, 2020</a></li>
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="down-content">
                                     <span>Lifestyle</span>
-                                    <a href="post-details.html"><h4>Donec tincidunt leo</h4></a>
+                                    <a href="post-details.html" class="post-title"><h4>Donec tincidunt leo</h4></a>
                                     <ul class="post-info">
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 12, 2020</a></li>
@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="down-content">
                                     <span>Lifestyle</span>
-                                    <a href="post-details.html"><h4>Mauris ac dolor ornare</h4></a>
+                                    <a href="post-details.html" class="post-title"><h4>Mauris ac dolor ornare</h4></a>
                                     <ul class="post-info">
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 10, 2020</a></li>

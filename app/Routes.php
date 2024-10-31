@@ -8,5 +8,8 @@ return [
         "/contact-us" => "ContactUs/index",
         "/post-detail" => "PostDetail/index",
         "/" . ADMIN_URL . "/dashboard" => 'adminhtml/AdminController/index'
+    ],
+    "POST" => [
+        "/register" => "Home/register",
     ]
 ];

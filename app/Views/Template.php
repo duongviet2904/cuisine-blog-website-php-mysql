@@ -8,7 +8,6 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
         <title>Stand CSS Blog by TemplateMo</title>
         <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-<!--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">-->
         <link rel="stylesheet" href="/assets/css/fontawesome.css">
         <link rel="stylesheet" href="/assets/css/templatemo-stand-blog.css">
         <link rel="stylesheet" href="/assets/css/owl.css">
@@ -16,14 +15,11 @@
     <body>
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v21.0&appId=419268717888276"></script>
-<!--        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>-->
-<!--        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>-->
-
         <!-- Header -->
         <header class="">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
-                    <a class="navbar-brand" href="/home"><h2><img src="">Cuisine Blog<em>.</em></h2></a>
+                    <a class="navbar-brand" href="/home"><h2><img style="width: 100px" src="/assets/images/cuisine.png"> Cuisine Blog<em>.</em></h2></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -74,7 +70,6 @@
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Login</button>
-
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</button>
@@ -117,40 +112,32 @@
                     </div>
                 </div>
             </div>
-
-            <!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
         </header>
-        <div class="heading-page header-text" style = "display: <?php if($selected == 'home') { echo 'none';} ?>;">
+        <?php if($selected != 'home'): ?>
+        <div class="heading-page header-text">
             <section class="page-heading">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-content">
                                 <h4>
-                                    <?php
-                                        if($selected == 'about-us') {
-                                            echo 'About us';
-                                        }elseif ($selected == 'blog-entries'){
-                                            echo 'Recent Posts';
-                                        }elseif ($selected == 'post-detail') {
-                                            echo 'Post Details';
-                                        }else{
-                                            echo 'Contact Us';
-                                        }
+                                     <?= match($selected)
+                                     {
+                                        'about-us' => 'About Us',
+                                        'blog-entries' => 'Recent posts',
+                                        'post-detail' => 'Post Details',
+                                        'contact-us' => 'Contact Us'
+                                     };
                                     ?>
                                 </h4>
                                 <h2>
-                                    <?php
-                                        if($selected == 'about-us') {
-                                            echo 'More about us';
-                                        }elseif ($selected == 'blog-entries'){
-                                            echo 'Our Recent Blog Entries';
-                                        }elseif ($selected == 'post-detail') {
-                                            echo 'Single blog post';
-                                        }else{
-                                            echo 'Let’s stay in touch!';
-                                        }
+                                    <?= match($selected)
+                                    {
+                                        'about-us' => 'More about us',
+                                        'blog-entries' => 'Our Recent Blog Entries',
+                                        'post-detail' => 'Single blog post',
+                                        'contact-us' => 'Let’s stay in touch!'
+                                    };
                                     ?>
                                 </h2>
                             </div>
@@ -159,8 +146,10 @@
                 </div>
             </section>
         </div>
-        <?php require_once $content; ?>
-
+        <?php endif; ?>
+        <div class="main">
+            <?php require_once $content; ?>
+        </div>
         <footer>
             <div class="container">
                 <div class="row">
@@ -176,7 +165,6 @@
                     <div class="col-lg-12">
                         <div class="copyright-text">
                             <p>Copyright 2020 Stand Blog Co.
-
                                 | Design: <a rel="nofollow" href="https://templatemo.com" target="_parent">TemplateMo</a></p>
                         </div>
                     </div>
@@ -184,11 +172,9 @@
             </div>
         </footer>
         <!-- Bootstrap core JavaScript -->
-
         <script src="/assets/js/jquery.min.js"></script>
         <script src="/assets/js/bootstrap.bundle.min.js"></script>
         <!-- Additional Scripts -->
-
         <script src="/assets/js/custom.js"></script>
         <script src="/assets/js/owl.js"></script>
         <script src="/assets/js/slick.js"></script>
