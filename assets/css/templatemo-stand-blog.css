@@ -7,17 +7,14 @@ https://templatemo.com/tm-551-stand-blog
 */
 
 body {
-  font-family: 'Roboto', sans-serif;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
-}
-.main{
-	flex: 1;
 }
 p {
 	margin-bottom: 0px;
@@ -59,6 +56,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .page-heading {
+	margin: 0px;
 	padding: 120px 0px;
 	text-align: left;
 	background-position: center center;
@@ -85,82 +83,82 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #preloader {
-  overflow: hidden;
-  background: #f48840;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: fixed;
-  z-index: 9999999;
-  color: #fff;
+	overflow: hidden;
+	background: #f48840;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: fixed;
+	z-index: 9999999;
+	color: #fff;
 }
 
 #preloader .jumper {
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  position: absolute;
-  margin: auto;
-  width: 50px;
-  height: 50px;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	position: absolute;
+	margin: auto;
+	width: 50px;
+	height: 50px;
 }
 
 #preloader .jumper > div {
-  background-color: #fff;
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  position: absolute;
-  opacity: 0;
-  width: 50px;
-  height: 50px;
-  -webkit-animation: jumper 1s 0s linear infinite;
-  animation: jumper 1s 0s linear infinite;
+	background-color: #fff;
+	width: 10px;
+	height: 10px;
+	border-radius: 100%;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	position: absolute;
+	opacity: 0;
+	width: 50px;
+	height: 50px;
+	-webkit-animation: jumper 1s 0s linear infinite;
+	animation: jumper 1s 0s linear infinite;
 }
 
 #preloader .jumper > div:nth-child(2) {
-  -webkit-animation-delay: 0.33333s;
-  animation-delay: 0.33333s;
+	-webkit-animation-delay: 0.33333s;
+	animation-delay: 0.33333s;
 }
 
 #preloader .jumper > div:nth-child(3) {
-  -webkit-animation-delay: 0.66666s;
-  animation-delay: 0.66666s;
+	-webkit-animation-delay: 0.66666s;
+	animation-delay: 0.66666s;
 }
 
 @-webkit-keyframes jumper {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  5% {
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	}
+	5% {
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 0;
+	}
 }
 
 @keyframes jumper {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  5% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	}
+	5% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
 
 
@@ -172,13 +170,19 @@ header {
 	height: 100px;
 	background-color: #f7f7f7;
 	-webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+header .navbar {
+	padding: 25px 0px;
+}
+.background-header .navbar {
+	padding: 17px 0px;
 }
 .background-header {
 	top: 0;
-	height: 100px;
+	height: 80px;
 	position: fixed;
 	box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
 }
@@ -206,9 +210,9 @@ header {
 	font-size: 24px;
 	font-weight: 900;
 	-webkit-transition: all .3s ease 0s;
-    -moz-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
-    transition: all .3s ease 0s;
+	-moz-transition: all .3s ease 0s;
+	-o-transition: all .3s ease 0s;
+	transition: all .3s ease 0s;
 }
 .navbar .navbar-brand h2 em {
 	font-size: 44px;
@@ -245,7 +249,7 @@ header {
 }
 .navbar .navbar-toggler {
 	border-color: #fff;
-	background-color: #f48840;	
+	background-color: #f48840;
 	height: 46px;
 	outline: none;
 	border-radius: 0px;
@@ -607,7 +611,7 @@ ul.page-numbers li a:hover {
 
 .blog-posts .comments ul li .right-content h4 span {
 	font-size: 14px;
-    color: #aaa;
+	color: #aaa;
 	font-weight: 400;
 	letter-spacing: 0.25px;
 	margin-left: 20px;
@@ -1030,14 +1034,14 @@ footer p a:hover {
 		display: none;
 	}
 	#navbarResponsive {
-	    z-index: 99999;
-	    position: absolute;
-	    top: 80px;
-	    left: 0;
-	    width: 100%;
-	    text-align: center;
-	    background-color: #fff;
-	    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+		z-index: 99999;
+		position: absolute;
+		top: 80px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		background-color: #fff;
+		box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
 	}
 	.navbar .navbar-nav .nav-item {
 		border-bottom: 1px solid #eee;
@@ -1090,8 +1094,19 @@ footer p a:hover {
 		margin-top: 60px;
 	}
 }
+.navbar-categories {
+	display: flex;
+	align-items: center;
+}
+.navbar-logo {
+	width: 50px;
+	margin-right: 10px;
+}
+.main{
+	flex: 1;
+}
 .post-title h4:hover{
-	transition: transform 2s ease;
+	transition: 0.2 ease;
 	color: #f48840;
 }
 .blog-thumb{
@@ -1109,4 +1124,3 @@ footer p a:hover {
 	}
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-
