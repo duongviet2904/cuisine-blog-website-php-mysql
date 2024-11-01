@@ -1,5 +1,7 @@
 /database/.DS_Store
 .env
+config/env.php
+.htaccess
 .DS_Store
 .idea/
 docker/db/mysql/*
