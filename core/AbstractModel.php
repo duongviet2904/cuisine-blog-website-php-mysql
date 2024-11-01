@@ -48,16 +48,6 @@ abstract class AbstractModel {
     }
 
     /**
-     * Abstract method for getting all records from database.
-     *
-     *
-     * @return array
-     * @access  public
-     * @since   Method available since Release 1.0.0
-     */
-    abstract function getAll(): iterable;
-
-    /**
      * The insert method.
      * 
      * This method makes it easy to insert data into the database 

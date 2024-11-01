@@ -13,16 +13,21 @@
         <link rel="stylesheet" href="/assets/css/owl.css">
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v21.0&appId=419268717888276"></script>
         <!-- Header -->
         <header class="">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
-                    <a class="navbar-brand" href="/home"><h2>Stand Blog<em>.</em></h2></a>
+                    <img src="/assets/images/cuisine.png" class="navbar-logo">
+                    <a class="navbar-brand" href="/home">
+                        <h2>Cuisine Blog<em>.</em></h2>
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ml-auto navbar-categories">
                             <li class="nav-item <?php if($selected == 'home') { echo 'active';} ?>">
                                 <a class="nav-link" href="/home">Home</a>
                             </li>
@@ -38,13 +43,116 @@
                             <li class="nav-item <?php if($selected == 'contact-us') { echo 'active';} ?>">
                                 <a class="nav-link" href="/contact-us">Contact Us</a>
                             </li>
+                            <li class="nav-item ">
+                                <div data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                    </svg>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-        </header>
-        <?php require_once $content; ?>
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
 
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/register" method="POST">
+                                <div class="mb-3">
+                                    <label for="firstname" class="form-label">First name</label>
+                                    <input type="text" class="form-control" id="firstname" name="firstname" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lastname" class="form-label">Last name</label>
+                                    <input type="text" class="form-control" id="lastname" name="lastname" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signup-username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="signup-username" name="username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signup-password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="signup-password" name="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <?php if($selected != 'home'): ?>
+        <div class="heading-page header-text">
+            <section class="page-heading">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-content">
+                                <h4>
+                                     <?= match($selected)
+                                     {
+                                        'about-us' => 'About Us',
+                                        'blog-entries' => 'Recent posts',
+                                        'post-detail' => 'Post Details',
+                                        'contact-us' => 'Contact Us'
+                                     };
+                                    ?>
+                                </h4>
+                                <h2>
+                                    <?= match($selected)
+                                    {
+                                        'about-us' => 'More about us',
+                                        'blog-entries' => 'Our Recent Blog Entries',
+                                        'post-detail' => 'Single blog post',
+                                        'contact-us' => 'Let’s stay in touch!'
+                                    };
+                                    ?>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <?php endif; ?>
+        <div class="main">
+            <?php require_once $content; ?>
+        </div>
         <footer>
             <div class="container">
                 <div class="row">
@@ -60,7 +168,6 @@
                     <div class="col-lg-12">
                         <div class="copyright-text">
                             <p>Copyright 2020 Stand Blog Co.
-
                                 | Design: <a rel="nofollow" href="https://templatemo.com" target="_parent">TemplateMo</a></p>
                         </div>
                     </div>

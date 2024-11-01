@@ -1,21 +1,6 @@
-<div class="heading-page header-text">
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-content">
-                        <h4>contact us</h4>
-                        <h2>let’s stay in touch!</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
 <section class="contact-us">
     <div class="container">
         <div class="row">
-
             <div class="col-lg-12">
                 <div class="down-contact">
                     <div class="row">
@@ -84,13 +69,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-12">
                 <div id="map">
                     <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
