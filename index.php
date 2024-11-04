@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+session_start();
+
 // Define path to application directory
 define('APPLICATION_PATH', substr(realpath(dirname(__FILE__)), 0));
 require_once './core/Psr4AutoloaderClass.php';
