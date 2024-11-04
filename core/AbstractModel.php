@@ -107,7 +107,7 @@ abstract class AbstractModel
         } else {
             $marks = array_fill(0, count($data), '?');
             $bindingValues = array_values($data);
-            $query = "INSERT INTO"  . $this->_table . "(" . implode(",", $fields)
+            $query = "INSERT INTO "  . $this->_table . "(" . implode(",", $fields)
                 . ") VALUES (" . implode(",", $marks) . ")";
         }
 
@@ -133,7 +133,7 @@ abstract class AbstractModel
         if (!$id) {
             throw new Exception("Id is required by load method");
         }
-        $query = $this->DB()->prepare('SELECT ' . implode(',', $columns) . ' FROM ' . $this->_table . 'WHERE id = :id');
+        $query = $this->DB()->prepare('SELECT ' . implode(',', $columns) . ' FROM ' . $this->_table . ' WHERE id = :id');
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
