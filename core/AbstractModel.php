@@ -155,7 +155,7 @@ abstract class AbstractModel
         if (!$id) {
             throw new Exception("Id is required by load method");
         }
-        $query = $this->DB()->prepare('DELETE FROM ' . $this->_table . 'WHERE id = :id');
+        $query = $this->DB()->prepare('DELETE FROM ' . $this->_table . ' WHERE id = :id');
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
         if ($query->rowCount()) {
