@@ -12,7 +12,8 @@ use PDO;
  *
  * @author Nguyen Viet Duong
  */
-abstract class AbstractModel {
+abstract class AbstractModel
+{
 
     /**
      * It represents a PDO instance
@@ -29,13 +30,21 @@ abstract class AbstractModel {
     private $_table;
 
     /**
+     * The primary key columns of the table in the database that the model binds
+     *
+     * @var array
+     */
+    private $_primary;
+
+    /**
      * The model construct
      *
      */
-    public function __construct($table_name) {
+    public function __construct($table_name, $primaryColumn = 'id')
+    {
 
         if (static::$db === null) {
-            
+
             $conn_string = 'mysql:host=' . DB_HOST . ';dbname=' . DB_DATABASE . ';charset=utf8';
             $db = new \PDO($conn_string, DB_ROOT_USERNAME, DB_ROOT_PASSWORD);
 
@@ -43,49 +52,116 @@ abstract class AbstractModel {
             $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             static::$db = $db;
         }
-        
+
+        if ($table_name === '') {
+            throw new Exception("Attribute _table is empty string!");
+        }
+
         $this->_table = $table_name;
+        $this->_primary = $primaryColumn;
     }
 
     /**
      * The insert method.
-     * 
-     * This method makes it easy to insert data into the database 
-     * in a quick and easy way. The data set must be associative. 
+     *
+     * This method makes it easy to insert data into the database
+     * in a quick and easy way. The data set must be associative.
      * Index of array represents the field in the database.
-     * 
+     *
      * For example: [ "fist_name" => "John" ]
      *
      * @param array $data A set of data to be added to the database.
      *
      * @return integer The last insert ID
      * @access  public
+     * @throws Exception
      * @since   Method available since Release 1.0.0
      */
-    public function insert(array $data): int {
-
-        if($this->_table === ""){
-            throw new Exception("Attribute _table is empty string!");
+    public function save(array $data): int
+    {
+        if (empty($data)) {
+            throw new Exception("Invalid data to save to the model");
         }
-        
-        // Question marks
-        $marks = array_fill(0, count($data), '?');
+
+        $isUpdate = false;
+
         // Fields to be added.
         $fields = array_keys($data);
         // Fields values
-        $values = array_values($data);
+        $bindingValues = [];
+
+        if (in_array($this->_primary, $fields) && $data[$this->_primary]) {
+            $i = 0;
+            $isUpdate = true;
+            $condition = "WHERE $this->_primary = " . $data[$this->_primary];
+            $action = " SET ";
+            foreach ($data as $columnName => $columnValue) {
+                if ($columnName == $this->_primary) {
+                    continue;
+                }
+                $action .= $i ? "," : "" . $columnName . "= ?";
+                $bindingValues[] = $columnValue;
+                $i++;
+            }
+            $query = "UPDATE " . $this->_table . $action . " " . $condition;
+        } else {
+            $marks = array_fill(0, count($data), '?');
+            $bindingValues = array_values($data);
+            $query = "INSERT INTO"  . $this->_table . "(" . implode(",", $fields)
+                . ") VALUES (" . implode(",", $marks) . ")";
+        }
 
         // Prepare statement
-        $stmt = $this->DB()->prepare("
-            INSERT INTO " . $this->_table . "(" . implode(",", $fields) . ")
-            VALUES(" . implode(",", $marks) . ")
-        ");
+        $stmt = $this->DB()->prepare($query);
 
         // Execute statement with values
-        $stmt->execute($values);
+        $stmt->execute($bindingValues);
 
         // Return last inserted ID.
-        return $this->DB()->lastInsertId();
+        return $isUpdate ? $this->load($data[$this->_primary]) : $this->DB()->lastInsertId();
+    }
+
+    /**
+     * Load data by id
+     *
+     * @param $id
+     * @param array $columns
+     * @return array|mixed
+     */
+    public function load($id, array $columns = ['*'])
+    {
+        if (!$id) {
+            throw new Exception("Id is required by load method");
+        }
+        $query = $this->DB()->prepare('SELECT ' . implode(',', $columns) . ' FROM ' . $this->_table . 'WHERE id = :id');
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        if (!$result) {
+            return [];
+        }
+        return $result;
+    }
+
+    /**
+     * Delete data by id
+     *
+     * @param $id
+     * @return bool
+     * @throws Exception
+     */
+    public function delete($id)
+    {
+        if (!$id) {
+            throw new Exception("Id is required by load method");
+        }
+        $query = $this->DB()->prepare('DELETE FROM ' . $this->_table . 'WHERE id = :id');
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        if ($query->rowCount()) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -95,9 +171,20 @@ abstract class AbstractModel {
      * @access  public
      * @since   Method available since Release 1.0.0
      */
-    protected function DB(): PDO {
+    public function DB(): PDO
+    {
 
         return static::$db;
+    }
+
+    /**
+     * Get table name of this model
+     *
+     * @return string
+     */
+    public function getTable()
+    {
+        return $this->_table;
     }
 
 }

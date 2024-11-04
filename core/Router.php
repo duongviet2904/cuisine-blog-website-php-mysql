@@ -195,8 +195,6 @@ class Router {
         if ($this->route === NULL) {
             throw new \Exception('No route matched.', 404);
         }
-        // Get route parameters
-        $this->extractUrlParams($requestUrl);
 
         // Run the route
         $this->runRoute();
@@ -212,39 +210,4 @@ class Router {
     public function getRoutes(): iterable {
         return $this->routes;
     }
-
-    /**
-     * The method for extracting parameters from request.
-     * 
-     * @param $url $data A set of data to be added to the database.
-     *
-     * @return void
-     * @access  public
-     * @since   Method available since Release 1.0.0
-     */
-    public function extractUrlParams(string $url): void {
-
-        // Route string
-        $params_string = str_replace($this->routePath, "", $url);
-
-        // Remove /
-        if (substr($params_string, 0, 1) === "/") {
-            $params_string = substr($params_string, 1);
-        }
-        $params = [];
-        $arr = explode("/", $params_string);
-
-        for ($index = 0; $index < count($arr); $index++) {
-            if (isset($arr[$index + 1])) {
-                $params[$arr[$index]] = $arr[$index + 1];
-            } else {
-                $params[$arr[$index]] = null;
-            }
-            $index++;
-        }
-
-        // Set parameters
-        Request::setParams($params);
-    }
-
 }

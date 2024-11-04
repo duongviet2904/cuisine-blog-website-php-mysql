@@ -1,5 +1,4 @@
 <?php
-
 namespace Core;
 
 /**
@@ -10,39 +9,86 @@ namespace Core;
  * @author Nguyen Viet Duong
  */
 class Request {
+    private $server;
+    private $getPequest;
+    private $postRequest;
+    private $file;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->server = $_SERVER;
+        $this->getPequest = $_GET;
+        $this->postRequest = $_POST;
+        $this->file = $_FILES;
+    }
 
     /**
-     * The array of request parameters.
-     *
-     * @var object
+     * @return array
      */
-    static $params = [];
+    public function getServer() {
+        return $this->server;
+    }
 
     /**
-     * The static method for getting certain parameter.
-     *
-     *
-     * @return mixed  It will return null if the parameter is not sent.
-     * @access  public
-     * @since   Method available since Release 1.0.0
+     * @return array
      */
-    public static function getParam(string $name, string $default = NULL): ?string {
-        if (isset(Request::$params[$name])) {
-            return Request::$params[$name];
-        } else {
-            return $default;
+    public function getParams() {
+        return $this->getPequest;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPostParams() {
+        return $this->postRequest;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFileRequest() {
+        return $this->file;
+    }
+
+    /**
+     * @param $paramName
+     * @return mixed|null
+     */
+    public function getParam($paramName) {
+        if (!isset($this->getPequest[$paramName])) {
+            return null;
         }
+        return $this->getPequest[$paramName];
     }
 
     /**
-     * The method for setting request parameters
-     *
+     * @param $paramName
+     * @param $paramValue
      * @return void
-     * @access  public
-     * @since   Method available since Release 1.0.0
      */
-    public static function setParams(array $params): void {
-        Request::$params = $params;
+    public function setParam($paramName, $paramValue) {
+        $_GET[$paramName] = $paramValue;
     }
 
+    /**
+     * @param $paramName
+     * @return mixed|null
+     */
+    public function getPostParam($paramName) {
+        if (!isset($this->postRequest[$paramName])) {
+            return null;
+        }
+        return $this->postRequest[$paramName];
+    }
+
+    /**
+     * @param $paramName
+     * @param $paramValue
+     * @return void
+     */
+    public function setPostParam($paramName, $paramValue) {
+        $_POST[$paramName] = $paramValue;
+    }
 }
