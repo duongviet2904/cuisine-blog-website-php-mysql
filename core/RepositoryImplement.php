@@ -1,4 +1,5 @@
 <?php
+
 namespace Core;
 
 /**
@@ -15,35 +16,44 @@ class RepositoryImplement implements RepositoryInterface
         $this->model = $model;
     }
 
-    public function getTableName() {
+    public function getTableName()
+    {
         return $this->model->getTable();
     }
 
     public function getAll($limit = 0, $page = 1)
     {
         $offset = ($page - 1) * $limit;
-        $query = $this->model->DB()->prepare('SELECT * FROM ' . $this->getTableName() . ' LIMIT :limit OFFSET :offset');
-        $query->bindParam(':limit', $limit, $this->model->DB()::PARAM_INT);
-        $query->bindParam(':offset', $offset, $this->model->DB()::PARAM_INT);
+        $query = $this->model->DB()->prepare(
+            'SELECT * FROM ' .
+            $this->getTableName() . 
+            $limit ? ' LIMIT :limit OFFSET :offset' : ''
+        );
+
+        if ($limit) {
+            $query->bindParam(':limit', $limit, $this->model->DB()::PARAM_INT);
+            $query->bindParam(':offset', $offset, $this->model->DB()::PARAM_INT);
+        }
+
         $query->execute();
-        $result = $query->fetch($this->model->DB()::FETCH_ASSOC);
+        $result = $query->fetchAll($this->model->DB()::FETCH_ASSOC);
         if (!$result) {
             return [];
         }
         return $result;
     }
 
-    public function getById($id, $columns = ['*']) : array
+    public function getById($id, $columns = ['*']): array
     {
         return $this->model->load($id, $columns);
     }
 
-    public function save($data) : int|array
+    public function save($data): int|array
     {
         return $this->model->save($data);
     }
 
-    public function delete($id) : bool
+    public function delete($id): bool
     {
         return $this->model->delete($id);
     }
