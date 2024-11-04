@@ -99,7 +99,7 @@ abstract class AbstractModel
                 if ($columnName == $this->_primary) {
                     continue;
                 }
-                $action .= $i ? "," : "" . $columnName . "= ?";
+                $action .= ($i ? "," : "") . $columnName . "= ?";
                 $bindingValues[] = $columnValue;
                 $i++;
             }
