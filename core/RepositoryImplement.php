@@ -26,8 +26,8 @@ class RepositoryImplement implements RepositoryInterface
         $offset = ($page - 1) * $limit;
         $query = $this->model->DB()->prepare(
             'SELECT * FROM ' .
-            $this->getTableName() . 
-            $limit ? ' LIMIT :limit OFFSET :offset' : ''
+            $this->getTableName() .
+            ($limit ? ' LIMIT :limit OFFSET :offset' : '')
         );
 
         if ($limit) {
