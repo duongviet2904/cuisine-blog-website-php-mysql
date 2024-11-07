@@ -10,7 +10,7 @@ namespace Core;
  */
 class Request {
     private $server;
-    private $getPequest;
+    private $getRequest;
     private $postRequest;
     private $file;
     /**
@@ -19,7 +19,7 @@ class Request {
     public function __construct()
     {
         $this->server = $_SERVER;
-        $this->getPequest = $_GET;
+        $this->getRequest = $_GET;
         $this->postRequest = $_POST;
         $this->file = $_FILES;
     }
@@ -35,7 +35,7 @@ class Request {
      * @return array
      */
     public function getParams() {
-        return $this->getPequest;
+        return $this->getRequest;
     }
 
     /**
@@ -57,10 +57,10 @@ class Request {
      * @return mixed|null
      */
     public function getParam($paramName) {
-        if (!isset($this->getPequest[$paramName])) {
+        if (!isset($this->getRequest[$paramName])) {
             return null;
         }
-        return $this->getPequest[$paramName];
+        return $this->getRequest[$paramName];
     }
 
     /**
