@@ -21,12 +21,13 @@ class RepositoryImplement implements RepositoryInterface
         return $this->model->getTable();
     }
 
-    public function getAll($limit = 0, $page = 1)
+    public function getAll($limit = 0, $page = 1, $columns = ['*'], $otherConditions = null)
     {
         $offset = ($page - 1) * $limit;
         $query = $this->model->DB()->prepare(
-            'SELECT * FROM ' .
+            'SELECT ' . implode(',', $columns) . ' FROM ' .
             $this->getTableName() .
+            ($otherConditions ?  ' ' . $otherConditions  . ' ' : '') .
             ($limit ? ' LIMIT :limit OFFSET :offset' : '')
         );
 
