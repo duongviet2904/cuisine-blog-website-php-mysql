@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="/assets/css/fontawesome.css">
         <link rel="stylesheet" href="/assets/css/templatemo-stand-blog.css">
         <link rel="stylesheet" href="/assets/css/owl.css">
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=672a5adff9d5250012f5dab1&product=inline-share-buttons&source=platform" async="async"></script>
     </head>
     <body>
         <div id="fb-root"></div>
@@ -37,9 +38,6 @@
                             <li class="nav-item <?php if($selected == 'blog-entries') { echo 'active';} ?>">
                                 <a class="nav-link" href="/blog-entries">Blog Entries</a>
                             </li>
-                            <li class="nav-item <?php if($selected == 'post-detail') { echo 'active';} ?>">
-                                <a class="nav-link" href="/post-detail">Post Details</a>
-                            </li>
                             <li class="nav-item <?php if($selected == 'contact-us') { echo 'active';} ?>">
                                 <a class="nav-link" href="/contact-us">Contact Us</a>
                             </li>
@@ -55,7 +53,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" >
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -63,7 +61,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
@@ -91,6 +88,14 @@
                         <div class="modal-body">
                             <form action="/register" method="POST">
                                 <div class="mb-3">
+                                    <label for="signup-username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="signup-username" name="username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signup-password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="signup-password" name="password" required>
+                                </div>
+                                <div class="mb-3">
                                     <label for="firstname" class="form-label">First name</label>
                                     <input type="text" class="form-control" id="firstname" name="firstname" required>
                                 </div>
@@ -99,12 +104,12 @@
                                     <input type="text" class="form-control" id="lastname" name="lastname" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="signup-username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="signup-username" name="username" required>
+                                    <label for="gender" class="form-label">Gender</label>
+                                    <input type="text" class="form-control" id="gender" name="gender" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="signup-password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="signup-password" name="password" required>
+                                    <label for="date_of_birth" class="form-label">Date of birth</label>
+                                    <input type="text" class="form-control" id="date_of_birth" name="date_of_birth" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100">Sign Up</button>
                             </form>
@@ -167,8 +172,8 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="copyright-text">
-                            <p>Copyright 2020 Stand Blog Co.
-                                | Design: <a rel="nofollow" href="https://templatemo.com" target="_parent">TemplateMo</a></p>
+                            <p>
+                                <a rel="nofollow" href="https://templatemo.com" target="_parent"></a></p>
                         </div>
                     </div>
                 </div>
@@ -193,5 +198,7 @@
                 }
             }
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
