@@ -1,15 +1,17 @@
 <?php
 namespace App\Repositories;
 
-use App\Models\Account;
+use App\Models\Post;
 use Core\RepositoryImplement;
 use Core\RepositoryInterface;
+use PDO;
 
-class AccountRepository extends RepositoryImplement
+class PostRepository extends RepositoryImplement
 {
     public function __construct()
     {
-        parent::__construct(new Account());
+        parent::__construct(new Post());
     }
+
 
 }

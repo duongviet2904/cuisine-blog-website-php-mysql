@@ -3,57 +3,28 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <img src="/assets/images/about-us.jpg" alt="">
-                <p>Please tell your friends about TemplateMo website. Thank you. You can browse through different categories of templates such as <a rel="nofollow" href="https://templatemo.com/tag/business" target="_parent">business</a>, <a rel="nofollow" href="https://templatemo.com/tag/portfolio" target="_parent">portfolio</a>, <a rel="nofollow" href="https://templatemo.com/tag/restaurant" target="_parent">restaurant</a>, etc. Pellentesque quis luctus libero. Maecenas pretium molestie erat, ac tincidunt leo gravida ac. Cras ullamcorper eu ipsum eu sollicitudin. Fusce vitae commodo turpis. Integer ullamcorper purus nec justo mollis fermentum. Nunc imperdiet erat nec lacinia laoreet. <br><br>Maecenas faucibus ullamcorper felis vitae finibus. Nullam at quam ut lacus aliquam tempor vel sed ipsum. Donec pellentesque tincidunt imperdiet. Mauris sit amet justo vulputate, cursus massa congue, vestibulum odio. Aenean elit nunc, gravida in erat sit amet, feugiat viverra leo. Phasellus interdum, diam commodo egestas rhoncus, turpis nisi consectetur nibh, in vehicula eros orci vel neque.</p>
+                <img src="/assets/images/hPCfxttZQnq4ANPjp6vE_WAFFLE_HOUSE_WAFFLES_120.jpg" alt="">
+                <p class="text">To our favorite community of home cooks we say: Welcome back to Food.com!&nbsp;<br><br>
+                    We may have a different name today, but there’s one thing that will never change, and that’s what you can expect from us:<br><br>
+                    <strong>ALL THE RECIPES YOU’LL EVER NEED. PERIOD.&nbsp;</strong><br><br>
+                    In other words, the new version of Food.com combines all of the things you loved most about the site with some helpful new features, including:&nbsp;<br><br>
+                    <strong>-Over 500,000 dishes created by users like you, with fresh recipes added every day<br>
+                        -Easy access to your favorite saved recipes and the option to organize them into boards<br>
+                        -A new activity feed where you can add your reviews, tweaks, questions and photos</strong><br><br>
+                    So if you’re hungry for good food and great conversation with fellow cooks, we’re so happy you’re here! And there’s no better place to start than our community’s <a href="#">75 Top-Rated Recipes of All Time</a>, from five-star <a href="#">banana bread</a> to our most-popular <a href="#">mac and cheese</a>.<br><br>
+                    Got more questions about the site? Contact our Customer Support team at <a rel="nofollow" href="mailto:help@food.com">help@food.com</a>.&nbsp;<br><br>
+                    Cheers and happy cooking,<br>
+                    Team Food
+                </p>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-6">
-                <h4>Two-One Donec porttitor augue</h4>
-                <p>Quisque bibendum cursus viverra. Mauris at ex ipsum. Aenean condimentum urna nisl, eget interdum ante euismod vel. Aliquam at metus sit amet nunc dapibus posuere.</p>
-            </div>
-            <div class="col-lg-6">
-                <h4>Two-Two Donec porttitor augue</h4>
-                <p>Maecenas et metus nisl. Morbi ac interdum metus. Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
+        <div class="full-width">
+            <div class="author-info container-sm">
+                <p class="author-name">About Team Food.com</p>
+                <div class="author-photo"><img src="/assets/images/cuisine.png" alttext="Team Food.com" caption="Team Food.com" style="width: 200px"></div>
+                <p class="author-bio">Hungry for good food AND great conversation? Food.com boasts a veritable smorgasbord of over 500,000 recipes and a community-inspired activity feed that allows users to share reviews, tweaks, questions and photos of their favorite recipes. Grab a plate and join the fun!</p>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <h4>1-03 Donec porttitor augue</h4>
-                <p>Quisque bibendum cursus viverra. Mauris at ex ipsum. Aenean condimentum urna nisl, eget interdum ante euismod vel. Aliquam at metus sit amet nunc dapibus posuere.</p>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <h4>2-03 Donec porttitor augue</h4>
-                <p>Maecenas et metus nisl. Morbi ac interdum metus. Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-            </div>
-            <div class="col-lg-4">
-                <h4>3-03 Donec porttitor augue</h4>
-                <p>Maecenas et metus nisl. Morbi ac interdum metus. Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <h4>01 Four Columns</h4>
-                <p>Mauris at ex ipsum. Aenean condimentum urna nisl, eget interdum ante euismod vel. Aliquam at metus sit amet nunc dapibus posuere.</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4>02 Four Columns</h4>
-                <p>Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4>03 Four Columns</h4>
-                <p>Morbi ac interdum metus. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4>04 Four Columns</h4>
-                <p>Aliquam erat volutpat. Donec posuere tortor vel volutpat consequat. Mauris sagittis magna vel tellus semper interdum et id sapien.</p>
-            </div>
-        </div>
-
         <div class="row">
             <div class="col-lg-12">
                 <ul class="social-icons">

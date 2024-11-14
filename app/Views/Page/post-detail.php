@@ -28,18 +28,18 @@
                         <div class="col-lg-12">
                             <div class="blog-post">
                                 <div class="blog-thumb">
-                                    <img src="assets/images/blog-post-02.jpg" alt="">
+                                    <img src="<?php echo htmlspecialchars($post['thumbnail']); ?>" class="img-fluid rounded-start" alt="Thumbnail">
                                 </div>
                                 <div class="down-content">
-                                    <span>Lifestyle</span>
-                                    <a href="post-details.html"><h4>Aenean pulvinar gravida sem nec</h4></a>
+                                    <span class="tag-cloud">Món ngon mỗi ngày</span>
+                                    <a href="post-details.html"><h4><?php echo htmlspecialchars($post['title']); ?></h4></a>
                                     <ul class="post-info">
-                                        <li><a href="#">Admin</a></li>
-                                        <li><a href="#">May 12, 2020</a></li>
-                                        <li><a href="#">10 Comments</a></li>
+                                        <li><a href="#"><?php echo htmlspecialchars($post['users_id']); ?></a></li>
+                                        <li><a href="#"><?php echo htmlspecialchars($post['created_at']); ?></a></li>
+                                        <li><a href="#"><?php echo htmlspecialchars($post['modified_at']); ?></a></li>
                                     </ul>
-                                    <p>You can browse different tags such as <a rel="nofollow" href="https://templatemo.com/tag/multi-page" target="_parent">multi-page</a>, <a rel="nofollow" href="https://templatemo.com/tag/resume" target="_parent">resume</a>, <a rel="nofollow" href="https://templatemo.com/tag/video" target="_parent">video</a>, etc. to see more CSS templates. Sed hendrerit rutrum arcu, non malesuada nisi. Sed id facilisis turpis. Donec justo elit, dapibus vel ultricies in, molestie sit amet risus. In nunc augue, rhoncus sed libero et, tincidunt tempor nisl. Donec egestas, quam eu rutrum ultrices, sapien ante posuere nisl, ac eleifend eros orci vel ante. Pellentesque vitae eleifend velit. Etiam blandit felis sollicitudin vestibulum feugiat.
-                                        <br><br>Donec tincidunt leo nec magna gravida varius. Suspendisse felis orci, egestas ac sodales quis, venenatis et neque. Vivamus facilisis dignissim arcu et blandit. Maecenas finibus dui non pulvinar lacinia. Ut lacinia finibus lorem vel porttitor. Suspendisse et metus nec libero ultrices varius eget in risus. Cras id nibh at erat pulvinar malesuada et non ipsum. Suspendisse id ipsum leo.</p>
+                                    <div class="sharethis-inline-share-buttons"></div>
+                                    <?= $post['content']; ?>
                                     <div class="post-options">
                                         <div class="row">
                                             <div class="col-6">
@@ -167,18 +167,14 @@
                                 </div>
                                 <div class="content">
                                     <ul>
-                                        <li><a href="post-details.html">
-                                                <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
-                                                <span>May 31, 2020</span>
-                                            </a></li>
-                                        <li><a href="post-details.html">
-                                                <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
-                                                <span>May 28, 2020</span>
-                                            </a></li>
-                                        <li><a href="post-details.html">
-                                                <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
-                                                <span>May 14, 2020</span>
-                                            </a></li>
+                                        <?php foreach ($limitPost as $post) :?>
+                                            <?php if($post['status'] == 1) : ?>
+                                                <li><a href="<?= "/post-detail?post_id=" . $post['id']?>">
+                                                        <h5><?= $post['title']?></h5>
+                                                        <span><?= $post['created_at']?></span>
+                                                    </a></li>
+                                            <?php endif;?>
+                                        <?php endforeach;?>
                                     </ul>
                                 </div>
                             </div>
@@ -189,13 +185,103 @@
                                     <h2>Categories</h2>
                                 </div>
                                 <div class="content">
-                                    <ul>
-                                        <li><a href="#">- Nature Lifestyle</a></li>
-                                        <li><a href="#">- Awesome Layouts</a></li>
-                                        <li><a href="#">- Creative Ideas</a></li>
-                                        <li><a href="#">- Responsive Templates</a></li>
-                                        <li><a href="#">- HTML5 / CSS3 Templates</a></li>
-                                        <li><a href="#">- Creative &amp; Unique</a></li>
+                                    <ul class="categories clearfix">
+                                        <li>
+                                            <a href="/gr/recipes/category/2020-holiday"><span>2024 Holiday</span> (7)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/autumn"><span>Autumn</span> (5)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/bbq"><span>BBQ</span> (6)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/beef"><span>Beef</span> (20)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/breakfast"><span>Breakfast</span> (28)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/chicken"><span>Chicken</span> (13)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/chocolate"><span>Chocolate</span> (5)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/christmas"><span>Christmas</span> (23)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/comfort-food"><span>Comfort Food</span> (15)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/dessert"><span>Dessert</span> (26)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/drinks"><span>Drinks</span> (1)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/duck"><span>Duck</span> (1)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/easter"><span>Easter</span> (3)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/egg"><span>Egg</span> (25)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/fish"><span>Fish</span> (8)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/fit-food" class="active"><span>Fit Food</span> (21)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/game"><span>Game</span> (3)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/kids"><span>Kids</span> (11)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/lamb"><span>Lamb</span> (5)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/pancake-day"><span>Pancake Day</span> (2)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/pasta"><span>Pasta</span> (6)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/pie"><span>Pie</span> (4)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/pork"><span>Pork</span> (18)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/salads"><span>Salads</span> (10)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/seafood"><span>Seafood</span> (9)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/store-cupboard-staples"><span>Store Cupboard Staples</span> (2)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/summer"><span>Summer</span> (11)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/thanksgiving"><span>Thanksgiving</span> (13)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/valentines-day"><span>Valentine's Day </span> (1)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/vegan"><span>Vegan</span> (4)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/vegetarian"><span>Vegetarian</span> (41)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/gr/recipes/category/wellington"><span>Wellington</span> (2)</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

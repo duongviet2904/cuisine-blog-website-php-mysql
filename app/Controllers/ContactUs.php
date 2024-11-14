@@ -7,6 +7,7 @@ use Core\View;
 use Core\Validator;
 
 class ContactUs extends AbstractController {
+
     public function index(): void {
         $selected = 'contact-us';
         View::render("contact-us",compact(array('selected')));
